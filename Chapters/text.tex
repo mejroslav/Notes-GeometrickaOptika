@@ -1,0 +1,165 @@
+\section{Rovnice eikonálu}
+
+Geometrická optika popisuje šíření světla pomocí \textit{paprsků světla}. Paprsek lze intuitivně chápat, jak ho však zavést přesněji? Lze ho chápat jako jistou limitu vlnové optiky v případě, že vlnová délka světla $\lambda$ bude velmi malá, tj. $\lambda \rightarrow 0$.
+
+Vycházíme z Maxwellových rovnic doplněných o materiálové vztahy v izotropním dielektriku \begin{align}
+     \grad \times \vc E &= - \pder{\vc B}{t} \:, \quad \grad \times \vc H = \pder{\vc D}{t} \:, \\ \label{eq:Maxwell}
+     \vc D(t, \vc x) &= \varepsilon(\vc x) \vc E(t, \vc x) \:, \quad \vc B(t, \vc x) = \mu(\vc x) \vc H(t, \vc x) \:.
+\end{align}
+
+Představme si šíření harmonické rovinné vlny zapsané v komplexní symbolice 
+\begin{align}
+    \vc E(t, \vc x) = \vc E_0 \exp \left[ i (\vc k \cdot \vc x - \omega t) \right] \:.
+\end{align}
+Pro prostorovou fázi platí \begin{align}
+    \vc k \cdot \vc x = k_0 (n \vc \sigma \cdot \vc x) = k_0 d \:,
+\end{align}
+kde $n$ je index lomu homogenního, izotropního prostředí, $k_0$ by bylo vlnové číslo vlny ve vakuu, $\vc \sigma$ je jednotkový vektor ve směru šíření vlny a $d$ je tzv. \textbf{optická dráha světla}.
+
+Nyní si představme o něco obecnější vlnu \begin{align}
+    \vc E(t, \vc x) =& \vc E_0(\vc x) \exp \left[ i k_0 S(\vc x) \right] \exp \left[ - i \omega t \right] \:, \\ \label{eq:E}
+    \vc H(t, \vc x) =& \vc H_0(\vc x) \exp \left[ i k_0 S(\vc x) \right] \exp \left[ - i \omega t \right] \:, \\ \label{eq:H}
+\end{align}
+kde $\vc E_0$ a $\vc H_0$ představují amplitudy, které se mění pomalu na vzdálenosti odpovídající vlnové délce, a $S(\vc x)$ je nová skalární funkce, kterou nazveme \textbf{eikonálem} (z řečtiny: eikos = obraz).
+
+Nyní odvodíme rovnici pro vlnu, kde bude vystupovat pouze eikonál. Jako první trik využijeme vektorové identity pro rotaci součinu \begin{align}
+    \grad \times (f \vc A) = f (\grad \times \vc A) + \grad f \times \vc A \:.
+\end{align}
+Aplikací rotace na rovnici pro magnetickou intenzitu \eqref{eq:H} a použitím Maxwellky \eqref{eq:Maxwell} dostaneme \begin{align}
+    (\grad \times \vc H_0) e^{ik_0 S} + ik_0 (\grad  S \times \vc H_0) e^{ik_0 S} = -  i \omega \varepsilon (\vc x) \vc E_0 (\vc x) e^{i k_0 S} \:.
+\end{align}
+Ve členu napravo objevíme \begin{align}
+    \omega = c k = \frac{c_0}{n} n k_0 =c_0 k_0
+\end{align}
+a navíc můžeme vyhodit exponenciální faktor. Rovnice se zjednoduší na \begin{align}
+     \frac{1}{k_0} (\grad \times \vc H_0)+ i (\grad S \times \vc H_0)  = -  i c_0  \varepsilon (\vc x) \vc E_0 (\vc x) \:.
+\end{align}
+Nyní provedeme geometrickou limitu: pokud $\lambda \rightarrow 0+$, tak to znamená, že $k_0 = \frac{2 \pi}{\lambda_0} \rightarrow + \infty$, takže první člen můžeme zanedbat. Potom dostaneme rovnici ve tvaru \begin{align}
+    \boxed{ \grad  S \times \vc H_0  = -  c_0  \varepsilon (\vc x) \vc E_0 (\vc x) } \:. \label{eq:rotH0}
+\end{align}
+Analogicky bychom pro rotaci elektrické intenzity dostali vztah \begin{align}
+    \boxed{ \grad  S \times \vc E_0  = + c_0  \mu (\vc x) \vc H_0 (\vc x) } \:. \label{eq:rotE0}
+\end{align}
+Z rovnice \eqref{eq:rotE0} lze vyjádřit $\vc H_0$, dosazením do \eqref{eq:rotE0} a zkrácením časového faktoru dostaneme \begin{align}
+    \grad S \times \left( \frac{1}{c_0 \mu (\vc x)} \grad S \times \vc E_0\right) = - c_0 \varepsilon \vc E_0 \:.
+\end{align}
+Jako druhý trik nyní použijeme b(ác)-c(áb) pravidlo pro dvojný vektorový součin a máme
+\begin{align}
+    \grad S (\grad S \cdot \vc E_0) - \vc E_0 (\grad S \cdot \grad S) + c_0^2 \epsilon(\vc x) \mu(\vc x) \vc E_0 = 0 \:.
+\end{align}
+Ovšem protože $\vc E_0$ je dle rovnice \eqref{eq:rotH0} vektorový součin $\vc \sigma$ s $\vc H_0$, musí být $\vc E_0$ kolmé na $\grad S$ a proto je první člen opět nulový. Dostaneme tak \begin{align}
+    \vc E_0(\vc x) \left[ \grad S \cdot \grad S - c_0^2 \varepsilon(\vc x) \mu(\vc x) \right] = 0 \:.
+\end{align}
+Má-li tato podmínka být splněna pro nenulová $\vc E_0$, musí být nutně \begin{align}
+    |\grad S|^2 = c_0^2 \varepsilon(\vc x) \mu(\vc x) \:.
+\end{align}
+Nyní ještě snadno nahlédneme, že \begin{align}
+    c_0^2 \varepsilon(\vc x) \mu(\vc x) = \varepsilon_r(\vc x)  = n^2(\vc x) \:,
+\end{align}
+a konečně dostáváme rovnici eikonálu \begin{align}
+    \boxed{ |\grad S (\vc x)|^2 = n^2(\vc x) } \:.
+\end{align}
+Je třeba zdůraznit, že výraz \begin{align}
+    |\grad S|^2 \neq 
+\end{align}
+
+\subsection{Význam eikonálové rovnice}
+
+Rovnici chápeme tak, že \textbf{místo bodů s konstantní hodnotou eikonálu určuje vlnoplochy}. Jednotkový vektor $\vc \sigma$ ve směru šíření paprsku se nazývá \textbf{paprskový vektor} a je určen rovnicí \begin{align}
+    \boxed{\vc \sigma(\vc x) = \frac{1}{n(\vc x)} \grad S(\vc x)} \:,
+\end{align}
+protože \begin{align}
+    |\vc \sigma|^2 = \dfrac{|\grad S|^2}{|n^2|} = 1 \:.
+\end{align}
+
+Zadá-li nám někdo prostorové rozložení indexu lomu $n(\vc x)$ v kartézských souřadnicích, pak vlastně řešíme Poissonovu rovnici \begin{align}
+    \pder{^2 S}{x^2} + \pder{^2 S}{y^2} + \pder{^2 S}{z^2} = n^2(x,y,z) \:.
+\end{align}
+
+Konečně, z rovnic pro rotaci \eqref{eq:E} a \eqref{eq:H} je vidět, že $\vc E_0$ i $\vc H_0$ musejí být kolmé na $\vc \sigma$, což odpovídá lokální aproximaci rovinnými vlnoplochami. \textbf{Paprsek se šíří podél směru gradientu eikonálu}, protože směr středovaného Poyntingova vektoru \begin{align}
+    \langle \vc S \rangle = \frac{1}{2} \langle \vc E \rangle \times \langle \vc H \rangle = \frac{1}{2} \vc E_0 \times \vc H_0 = \frac{1}{2 \mu c_0} |\vc E_0|^2 \grad S = c \langle w \rangle \vc s \:,
+\end{align}
+kde $w$ je elektromagnetická hustota energie.
+
+\subsection{Zákon lomu pro paprsky}
+Pro vektor $n \vc \sigma = \grad S$ platí zřejmě $\grad \times \grad S = 0$, což odpovídá podle Stokesovy věty formuli \begin{align}
+    \int_\gamma n \vc \sigma \cdot \D \vc l = 0 \quad \text{podél uzavřené křivky } \gamma \:.
+\end{align}
+Tato rovnice se nazývá Lagrangeův invariant.
+
+Aplikací této rovnice na malý obdélník podél rozhraní dvou prostředí o různých indexech lomů dostaneme Snellův zákon: \begin{align}
+    \int_\gamma n \vc \sigma \cdot \D \vc l = n_1 D \sin \theta_1 - n_2 D \sin \theta_2 = 0 \implies n_1 \sin \theta_1 = n_2 \sin \theta_2 \:.
+\end{align}
+
+\subsection{Fermatův princip}
+
+Z rovnice pro Lagrangeův invariant lze také nahlédnout jiný princip. Uvažujme dvě blízké vlnoplochy $S_i$ a $S_f$ a uzavřenou křivku začínající na $S_i$ v bodě $A_i$, pokračující do bodu $A_f$ na $S_f$ podél skutečné dráhy paprsku a jiný bod $B$ na $S_f$. Pak platí \begin{align}
+    \int_{A_i}^{A_f} n \vc \sigma \cdot \D \vc l + \int_{A_f}^{B} n \vc \sigma \cdot \D \vc l + \int_{B}^{A_i} n \vc \sigma \cdot \D \vc l = 0 \:,
+\end{align}
+prostřední integrál je nulový, protože vede po vlnoploše. Proto \begin{align}
+    \int_{A_i}^{A_f} n \vc \sigma \cdot \D \vc l = \int_{A_i}^{B} n \vc \sigma \cdot \D \vc l \:.
+\end{align}
+Uvažujeme-li plochy opravdu blízko sebe, zle první integrál aproximovat prostě $n \D l$, kde $\D l$ je vzdálenost vlnoploch. Druhý integrál pak bude $n \D l \frac{1}{\cos \alpha}$, kde $\alpha$ je úhel odklonu od směru paprsku. Proto \begin{align}
+    (n \D l)_{\text{po paprsku}} = (n \D l \frac{1}{\cos \alpha})_{\text{po libovolné křivce}} \leq (n \D l)_{\text{po libovolné křivce}} \:,
+\end{align}
+což lze po zavedení optické dráhy $d = n |\vc \sigma \cdot \vc l|$ číst jako vztah \begin{align}
+    \boxed{ d_{\text{po paprsku}} \leq d_{\text{po libovolné křivce}} } \:.
+\end{align}
+To je formulace \textbf{Fermatova principu}: světlo se šíří tak, aby se minimalizovala délka optické dráhy. Nicméně obecněji lze tento formulovat tak, že optická dráha má být extremální, nemusí jít nutně o minimum. Ovšem zde se připojuje do hry zase nějaká stabilita a tak, ale v optice to nikdo moc neřeší, takže kdo ví...
+
+\section{Paprsková rovnice}
+
+Kromě eikonálové rovnice je užitečné zformulovat rovnici, která přímo popisuje paprsek. Dráhu paprsku popíšeme křivkou $\vc r(p)$ (nevolíme parametr $s$, protože toto písmenko už znamená tři různé věci). Jednotkový tečný vektor ke křivce bude \begin{align}
+    \vc \sigma(p) = \der{\vc r}{p} \:.
+\end{align}
+Nyní odvodíme paprskovou rovnici
+\begin{align}
+    \boxed{
+    \der{}{p} \left( n \der{\vc r}{p}\right)  = \grad n 
+    }\:. \label{eq:paprsek}
+\end{align}
+Platí totiž
+\begin{align}
+    \der{}{p} \left( n \der{\vc r}{p}\right) 
+    =&
+    \der{}{p} (n \vc \sigma) 
+    =
+    \der{}{p} \grad S 
+    =
+    (\vc \sigma \cdot \grad ) \grad S 
+    = 
+    \left( \frac{1}{n} \grad S \cdot \grad \right) \grad S 
+    =\\ =&
+    \dfrac{1}{2} \left[ \frac{1}{n} \grad (\grad S)^2 \right] 
+    =
+    \frac{1}{2 n} \grad \left( n \vc \sigma \right)^2 
+    =
+    \frac{1}{2n} (2 n \grad n)= \grad n \:.
+\end{align}
+
+Paprskovou rovnici \eqref{eq:paprsek} používáme tak, že při zadaném rozložení indexu lomu $n(x,y,z)$ hledáme křivku $\vc r(p) = \left( x(p), y(p), z(p) \right)$, jejíž jednotlivé složky splňují rovnice \begin{align}
+    \der{}{p} \left( n(x,y,z) \der{x}{p} \right) =& \der{n}{x} \:, \\
+    \der{}{p} \left( n(x,y,z) \der{y}{p} \right) =& \der{n}{y} \:, \\
+    \der{}{p} \left( n(x,y,z) \der{z}{p} \right) =& \der{n}{z} \:.
+\end{align}
+
+\begin{example}
+V prostředí s konstantním indexem lomu $n$ řešíme soustavu \begin{align}
+    n \der{^2 x}{p^2} = n \der{^2 y}{p^2} = n \der{^2 z}{p^2} = 0 \:, 
+\end{align}
+jejím řešením je \begin{align}
+    \vc x(p) = \vc a p + \vc x_0 \:,
+\end{align}
+což je rovnice přímky.
+
+Pro lineární změnu indexu lomu $n(x,y) = \alpha x + n_0$ máme rovnice 
+\begin{align}
+    \der{}{p} \left( (\alpha x + n_0) \der{x}{p} \right) = \alpha \:, \quad \der{}{p} \left( (\alpha x + n_0) \der{y}{p} \right) = 0 \:,
+\end{align}
+odkud dostaneme \begin{align}
+    \alpha x^2 + 2 n_0 x - (\alpha p^2 + C_x)  = 0 \:
+\end{align}
+a pak můžeme rovnici vyřešit.
+\end{example}
+
+[TODO: Abbeův invariant]
